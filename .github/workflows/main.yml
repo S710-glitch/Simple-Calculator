@@ -1,0 +1,26 @@
+name: Calculator CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Check HTML file
+        run: test -f index.html
+
+      - name: Check CSS file
+        run: test -f style.css
+
+      - name: Check JavaScript file
+        run: test -f script.js
+
+      - name: Show success message
+        run: echo "Calculator files are present!"
